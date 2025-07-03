@@ -2,7 +2,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Alert, ScrollView, StyleSheet, Text } from 'react-native';
+import { Alert, ScrollView, Text } from 'react-native';
 import { Button, TextInput, Title } from 'react-native-paper';
 import * as yup from 'yup';
 
@@ -46,8 +46,8 @@ export default function App() {
   // Reset function to clear all fields
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Title style={styles.title}>IME - SWE3 Interview Form</Title>
+    <ScrollView>
+      <Title>IME - SWE3 Interview Form</Title>
 
       {/* Name */}
       <Controller
@@ -59,11 +59,10 @@ export default function App() {
             value={value || ''}
             onChangeText={onChange}
             error={!!errors.name}
-            style={styles.input}
           />
         )}
       />
-      {errors.name && <Text style={styles.error}>{errors.name.message}</Text>}
+      {errors.name && <Text>{errors.name.message}</Text>}
 
       {/* Surname */}
       <Controller
@@ -75,11 +74,10 @@ export default function App() {
             value={value || ''}
             onChangeText={onChange}
             error={!!errors.surname}
-            style={styles.input}
           />
         )}
       />
-      {errors.surname && <Text style={styles.error}>{errors.surname.message}</Text>}
+      {errors.surname && <Text>{errors.surname.message}</Text>}
 
       {/* Birth Date */}
       <Controller
@@ -91,11 +89,10 @@ export default function App() {
             value={value || ''}
             onChangeText={onChange}
             error={!!errors.birthDate}
-            style={styles.input}
           />
         )}
       />
-      {errors.birthDate && <Text style={styles.error}>{errors.birthDate.message}</Text>}
+      {errors.birthDate && <Text>{errors.birthDate.message}</Text>}
 
       {/* Email */}
       <Controller
@@ -108,11 +105,10 @@ export default function App() {
             onChangeText={onChange}
             error={!!errors.email}
             keyboardType="email-address"
-            style={styles.input}
           />
         )}
       />
-      {errors.email && <Text style={styles.error}>{errors.email.message}</Text>}
+      {errors.email && <Text>{errors.email.message}</Text>}
 
       {/* Phone */}
       <Controller
@@ -125,11 +121,10 @@ export default function App() {
             onChangeText={onChange}
             error={!!errors.phone}
             keyboardType="phone-pad"
-            style={styles.input}
           />
         )}
       />
-      {errors.phone && <Text style={styles.error}>{errors.phone.message}</Text>}
+      {errors.phone && <Text>{errors.phone.message}</Text>}
 
       {/* Submit */}
       <Button mode="contained" onPress={handleSubmit(onSubmit)} style={styles.button}>
@@ -138,27 +133,3 @@ export default function App() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    paddingTop: 80,
-    backgroundColor: '#fff',
-    flexGrow: 1,
-  },
-  title: {
-    textAlign: 'center',
-    marginBottom: 30,
-    fontSize: 24,
-  },
-  input: {
-    marginBottom: 10,
-  },
-  button: {
-    marginTop: 20,
-  },
-  error: {
-    color: 'red',
-    marginBottom: 10,
-  },
-});
